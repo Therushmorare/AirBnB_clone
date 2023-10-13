@@ -19,11 +19,12 @@ class HBNBCommand(cmd.Cmd):
 	"""
 	The HBNBCommand class defines the HBNB command interpreter
 
-	Args:
+	Attributes:
 		prompt (str): command line prompt
 	"""
 
 	prompt = "(hbnb) "
+	__classes = {'BaseModel': BaseModel, 'User': User, 'City': City,'Place': Place, 'Amenity': Amenity, 'Review': Review,'State': State}
 	
 	def do_quit(self, arg):
 		"""
@@ -69,5 +70,5 @@ class HBNBCommand(cmd.Cmd):
 			print(object_dictionary["{}.{}".format(argument[0], argument[1])])
 
 
-	if __name__ == '__main__':
-   		 HBNBCommand().cmdloop()
+if __name__ == '__main__':
+   	HBNBCommand().cmdloop()
