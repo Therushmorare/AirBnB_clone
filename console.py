@@ -33,13 +33,13 @@ class HBNBCommand(cmd.Cmd):
 		"""
 		Create function
 		"""
-		argl = parse(arg)
-		if len(argl) == 0:
+		argument = parse(arg)
+		if len(argument) == 0:
 			print("** class name missing **")
-		elif argl[0] not in HBNBCommand.__classes:
+		elif argument[0] not in HBNBCommand.__classes:
 			print("** class doesn't exist **")
 		else:
-			print(eval(argl[0])().id)
+			print(eval(argument[0])().id)
 			storage.save()
 
 if __name__ == '__main__':
