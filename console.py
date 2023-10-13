@@ -2,7 +2,6 @@
 """
 This module defines the HBNB console
 """
-
 import cmd
 import re
 from shlex import split
@@ -14,7 +13,7 @@ from models.city import City
 from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
-from parse_func.py import parse
+from parse_func import parse
 
 class HBNBCommand(cmd.Cmd):
 	"""
@@ -71,4 +70,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 	if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+   		 HBNBCommand().cmdloop()
