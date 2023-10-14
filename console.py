@@ -104,5 +104,52 @@ class HBNBCommand(cmd.Cmd):
 					list_object.append(obj.__str__())
 			print(list_object)
 
+		def do_update(self, arg):
+			"""
+			Update Function
+			"""
+			argument = parse(arg)
+			storage_object = storage.all()
+
+			if len(argument) == 0:
+				print("** class name missing **")
+				return False
+			if argument[0] not in HBNBCommand.__classes:
+				print("** class doesn't exist **")
+				return False
+			if len(argument) == 1:
+				print("** instance id missing **")
+				return False
+			if "{}.{}".format(argument[0], argument[1]) not in storage_object.keys():
+				print("** no instance found **")
+				return False
+			if len(argument) == 2:
+				print("** attribute name missing **")
+				return False
+			if len(argument) == 3:
+				try:
+					type(eval(argument[2])) != dict
+				except NameError:
+					print("** value missing **")
+					return False
+
+			if len(argument) == 4:
+				obj = storage_object["{}.{}".format(argument[0], argument[1])]
+				if argument[2] in obj.__class__.__dict__.keys():
+					type_object = type(obj.__class__.__dict__[argument[2]])
+					obj.__dict__[argument[2]] = type_object(argument[3])
+				 else:
+					obj.__dict__[argument[2]] = argument[3]
+			elif type(eval(argument[2])) == dict:
+				obj = storage_object["{}.{}".format(argument[0], argument[1])]
+				for key, value in eval(argument[2]).items():
+					if (key in obj.__class__.__dict__.keys() and
+						type(obj.__class__.__dict__[key]) in {str, int, float}):
+					type_object = type(obj.__class__.__dict__[key])
+					obj.__dict__[key] = storage_object(value)
+					else:
+						obj.__dict__[key] = value
+			storage.save()
+
 if __name__ == '__main__':
 	HBNBCommand().cmdloop()
