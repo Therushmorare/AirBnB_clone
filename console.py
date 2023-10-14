@@ -88,6 +88,21 @@ class HBNBCommand(cmd.Cmd):
 			del object_dictionary["{}.{}".format(argument[0], argument[1])]
 			storage.save()
 
+	    def do_all(self, arg):
+		"""
+		Do_all function
+		"""
+		argument = parse(arg)
+		if len(argument) > 0 and argument[0] not in HBNBCommand.__classes:
+			print("** class doesn't exist **")
+		else:
+			list_object = []
+			for list_object in storage.all().values():
+				if len(argument) > 0 and argument[0] == obj.__class__.__name__:
+					list_object.append(obj.__str__())
+				elif len(argument) == 0:
+					list_object.append(obj.__str__())
+			print(list_object)
 
 if __name__ == '__main__':
-   	HBNBCommand().cmdloop()
+	HBNBCommand().cmdloop()
