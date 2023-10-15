@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
 			print("** class doesn't exist **")
 		else:
 			list_object = []
-			for list_object in storage.all().values():
+			for obj in storage.all().values():
 				if len(argument) > 0 and argument[0] == obj.__class__.__name__:
 					list_object.append(obj.__str__())
 				elif len(argument) == 0:
