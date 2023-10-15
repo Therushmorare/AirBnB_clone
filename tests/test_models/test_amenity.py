@@ -8,7 +8,7 @@ from time import sleep
 from models.amenity import Amenity
 
 class TestAmenity(unittest.TestCase):
-""" Test amenity Class """
+    """ Test amenity Class """
     def test_default_name(self):
         amenity = Amenity()
         self.assertEqual(amenity.name, "")

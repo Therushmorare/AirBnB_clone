@@ -9,7 +9,7 @@ from time import sleep
 from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
-""" Test Base Model Class """
+    """ Test Base Model Class """
     def test_default_attributes(self):
         model = BaseModel()
         self.assertIsInstance(model.id, str)
@@ -18,8 +18,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_custom_attributes(self):
         custom_id = "custom_id"
-        custom_created_at = datetime(2022, 1, 1, 0, 0, 0)
-        custom_updated_at = datetime(2022, 2, 2, 0, 0, 0)
+        custom_created_at = datetime.now()
+        custom_updated_at = datetime.now()
         model = BaseModel(
             id=custom_id,
             created_at=custom_created_at.isoformat(),
@@ -40,8 +40,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict_method(self):
         custom_id = "custom_id"
-        custom_created_at = datetime(2022, 1, 1, 0, 0, 0)
-        custom_updated_at = datetime(2022, 2, 2, 0, 0, 0)
+        custom_created_at = datetime.now()
+        custom_updated_at = datetime.now()
         model = BaseModel(
             id=custom_id,
             created_at=custom_created_at.isoformat(),

@@ -9,7 +9,7 @@ from time import sleep
 from models.city import City
 
 class TestCity(unittest.TestCase):
-""" Test City Class """
+    """ Test City Class """
 
     def test_default_attributes(self):
         city = City()

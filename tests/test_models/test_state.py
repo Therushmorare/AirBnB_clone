@@ -9,7 +9,7 @@ from time import sleep
 from models.state import State
 
 class TestState(unittest.TestCase):
-""" Test State Class """
+    """ Test State Class """
 
     def test_default_attributes(self):
         state = State()

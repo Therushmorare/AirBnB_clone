@@ -9,7 +9,7 @@ from time import sleep
 from models.user import User
 
 class TestUser(unittest.TestCase):
-""" Test User Class """
+    """ Test User Class """
     def test_default_attributes(self):
         user = User()
         self.assertEqual(user.email, "")

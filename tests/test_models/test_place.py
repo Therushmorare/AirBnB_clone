@@ -9,7 +9,7 @@ from time import sleep
 from models.place import Place
 
 class TestPlace(unittest.TestCase):
-""" Test Place Class """
+    """ Test Place Class """
 
     def test_default_attributes(self):
         place = Place()
